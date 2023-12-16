@@ -1,0 +1,32 @@
+---
+- hosts: nodes
+  become: true
+
+  vars_files:
+    - config.yml
+
+  pre_tasks:
+    - name: Ensure dependencies are installed.
+      apt:
+        name:
+          - sudo
+          - openssh-server
+        state: present
+
+    # - import_tasks: tasks/cgroup-features.yml
+    # - import_tasks: tasks/disable-swap.yml
+    #   tags: ['always']
+
+    # - import_tasks: tasks/net-setup.yml
+    #   when:
+    #     - ansible_distribution_version == "10"
+    #     - deploy_target != 'docker'
+
+    # - name: Set the master node IP.
+    #   set_fact:
+    #     kubernetes_master_ip: "{{ hostvars['node1']['ansible_host'] }}"
+    #   tags: ['always']
+
+  roles:
+    - role: geerlingguy.security
+      tags: ['security']

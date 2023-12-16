@@ -1,0 +1,22 @@
+---
+# Mapping of what hardware MAC addresses should be configured with specific IPs.
+mac_address_mapping:
+  "d8:3a:dd:92:59:65":
+    name: node1.pi-cluster.com
+    ip: "192.168.178.101"
+  "d8:3a:dd:92:59:b7":
+    name: node2.pi-cluster.com
+    ip: "192.168.178.102"
+  "d8:3a:dd:92:5b:a2":
+    name: node3.pi-cluster.com
+    ip: "192.168.178.103"
+  "d8:3a:dd:92:58:fc":
+    name: node4.pi-cluster.com
+    ip: "192.168.178.104"
+
+# Nameservers to use in resolv.conf.
+dns_nameservers:
+  - "8.8.8.8"
+  - "8.8.4.4"
+
+node_ip_gateway: "192.168.178.1"
