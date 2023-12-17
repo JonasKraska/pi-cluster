@@ -3,7 +3,7 @@
   become: true
 
   vars_files:
-    - config.yml
+    - roles/config.yml
 
   pre_tasks:
     - name: Ensure dependencies are installed.
@@ -13,9 +13,9 @@
           - openssh-server
         state: present
 
-    # - import_tasks: tasks/cgroup-features.yml
-    # - import_tasks: tasks/disable-swap.yml
-    #   tags: ['always']
+    - import_tasks: tasks/cgroup-features.yml
+    - import_tasks: tasks/disable-swap.yml
+      tags: ['always']
 
     # - import_tasks: tasks/net-setup.yml
     #   when:
@@ -30,3 +30,9 @@
   roles:
     - role: geerlingguy.security
       tags: ['security']
+
+    - role: geerlingguy.containerd
+      tags: ['containerd']
+
+    - role: geerlingguy.kubernetes
+      tags: ['kubernetes']

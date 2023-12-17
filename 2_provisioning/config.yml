@@ -1,6 +1,0 @@
-
-security_ssh_allowed_users:
-  - pi
-
-security_sudoers_passwordless:
-  - pi

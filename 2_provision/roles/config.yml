@@ -1,0 +1,17 @@
+
+security_ssh_allowed_users:
+  - pi
+security_sudoers_passwordless:
+  - pi
+
+kubernetes_allow_pods_on_master: false
+kubernetes_version: '1.28'
+kubernetes_packages:
+  - name: kubelet=1.28.2-00
+    state: present
+  - name: kubectl=1.28.2-00
+    state: present
+  - name: kubeadm=1.28.2-00
+    state: present
+  - name: kubernetes-cni
+    state: present
